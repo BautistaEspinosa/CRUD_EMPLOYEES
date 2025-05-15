@@ -91,7 +91,7 @@ src/main/java/com/example/CRUDEMPLOYEES/
 
 1. Clona el repositorio:
    ```bash
-   git clone [https://github.com/tu-usuario/CRUDEMPLOYEES.git](https://github.com/BautistaEspinosa/CRUD_EMPLOYEES.git)
+   git clone https://github.com/tu-usuario/CRUDEMPLOYEES.git
    ```
 
 2. Ejecuta la app desde tu IDE o:
