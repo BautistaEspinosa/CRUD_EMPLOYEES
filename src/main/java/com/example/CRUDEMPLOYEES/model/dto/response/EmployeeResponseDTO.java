@@ -1,5 +1,6 @@
 package com.example.CRUDEMPLOYEES.model.dto.response;
 
+import com.example.CRUDEMPLOYEES.constants.Constants;
 import com.example.CRUDEMPLOYEES.model.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ public class EmployeeResponseDTO {
   private String fullName;
   private Integer age;
   private Gender gender;
-  @JsonFormat(pattern = "dd-MM-yyyy")
+  @JsonFormat(pattern = Constants.PATTER_DATE)
   private LocalDate birthdate;
   private String position;
 }

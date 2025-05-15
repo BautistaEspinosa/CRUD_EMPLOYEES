@@ -1,0 +1,74 @@
+2025-05-15 10:37:56 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-15 10:37:57 [restartedMain] INFO  c.e.C.CrudemployeesApplication - Starting CrudemployeesApplication using Java 17.0.12 with PID 8524 (C:\Users\newco\Downloads\RMN\EXAMEN-NOVA\CRUDEMPLOYEES\target\classes started by Diana Baez in C:\Users\newco\Downloads\RMN\EXAMEN-NOVA\CRUDEMPLOYEES)
+2025-05-15 10:37:57 [restartedMain] DEBUG c.e.C.CrudemployeesApplication - Running with Spring Boot v3.2.4, Spring v6.1.5
+2025-05-15 10:37:57 [restartedMain] INFO  c.e.C.CrudemployeesApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-15 10:38:04 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-15 10:38:04 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-15 10:38:04 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-05-15 10:38:05 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-15 10:38:05 [restartedMain] DEBUG o.s.w.f.ServerHttpObservationFilter - Filter 'webMvcObservationFilter' configured for use
+2025-05-15 10:38:05 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-15 10:38:06 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-15 10:38:06 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-15 10:38:06 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-15 10:38:07 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:employeesdb user=SA
+2025-05-15 10:38:07 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-15 10:38:09 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 10:38:12 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-15 10:38:13 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 14 mappings in 'requestMappingHandlerMapping'
+2025-05-15 10:38:13 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-05-15 10:38:13 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-05-15 10:38:13 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-05-15 10:38:14 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-15 10:38:15 [restartedMain] INFO  c.e.C.CrudemployeesApplication - Started CrudemployeesApplication in 20.101 seconds (process running for 21.942)
+2025-05-15 10:39:09 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-15 10:39:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-15 10:39:09 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-05-15 10:39:09 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-05-15 10:39:09 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-05-15 10:39:09 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1f16cfe2
+2025-05-15 10:39:09 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@a07eeab
+2025-05-15 10:39:09 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-05-15 10:39:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 201 ms
+2025-05-15 10:39:09 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-05-15 10:39:09 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-05-15 10:39:10 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-05-15 10:39:10 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/v3/api-docs/swagger-config", parameters={}
+2025-05-15 10:39:10 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2025-05-15 10:39:10 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+2025-05-15 10:39:10 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8080/swagger-ui/oauth2-re (truncated)...]
+2025-05-15 10:39:10 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-05-15 10:39:10 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/v3/api-docs", parameters={}
+2025-05-15 10:39:10 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2025-05-15 10:39:15 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 4667 ms
+2025-05-15 10:39:15 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, */*] and supported [application/json]
+2025-05-15 10:39:15 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2025-05-15 10:39:15 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-05-15 10:41:36 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/employees", parameters={}
+2025-05-15 10:41:36 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.CRUDEMPLOYEES.controller.EmployeeController#create(EmployeeRequestDTO, HttpHeaders)
+2025-05-15 10:41:37 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [EmployeeRequestDTO(firstName=slHztSaOxjAEvazPdduWfGCaKntydjXBaAJsEUaAUImnuYzHRoYaVoNLcWRKSgGxaAYQuVq (truncated)...]
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'host': localhost:8080
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'connection': keep-alive
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'content-length': 332
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'sec-ch-ua-platform': "Windows"
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'user-agent': Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'accept': application/json
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'sec-ch-ua': "Chromium";v="136", "Brave";v="136", "Not.A/Brand";v="99"
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'content-type': application/json
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'sec-ch-ua-mobile': ?0
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'sec-gpc': 1
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'accept-language': es-ES,es;q=0.5
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'origin': http://localhost:8080
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'sec-fetch-site': same-origin
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'sec-fetch-mode': cors
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'sec-fetch-dest': empty
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'referer': http://localhost:8080/swagger-ui/index.html
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.controller.EmployeeController - Header 'accept-encoding': gzip, deflate, br, zstd
+2025-05-15 10:41:37 [http-nio-8080-exec-5] INFO  c.e.C.s.impl.EmployeeServiceImpl - Creating new employee
+2025-05-15 10:41:38 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json] and supported [application/json, application/*+json]
+2025-05-15 10:41:38 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [EmployeeResponseDTO(id=1, fullName=slHztSaOxjAEvazPdduWfGCaKntydjXBaAJsEUaAUImnuYzHRoYaVoNLcWRKSgGxa (truncated)...]
+2025-05-15 10:41:38 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 201 CREATED
+2025-05-15 10:45:37 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2025-05-15 10:45:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-15 10:45:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

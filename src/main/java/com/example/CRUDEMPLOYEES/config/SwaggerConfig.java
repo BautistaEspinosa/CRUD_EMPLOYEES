@@ -4,6 +4,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import static com.example.CRUDEMPLOYEES.constants.ApiDocConstants.*;
 
 @Configuration
 public class SwaggerConfig {
@@ -12,8 +13,8 @@ public class SwaggerConfig {
 public OpenAPI customOpenApi(){
 return new OpenAPI()
     .info(new Info()
-        .title("CRUD EMPLOYEES")
-        .version("1.0")
-        .description("REST service for employee CRUD"));
+        .title(API_TITLE)
+        .version(API_VERSION)
+        .description(API_DESCRIPTION));
   }
 }

@@ -1,5 +1,6 @@
 package com.example.CRUDEMPLOYEES.model.entities;
 
+import com.example.CRUDEMPLOYEES.constants.LoggerConstants;
 import com.example.CRUDEMPLOYEES.model.enums.Gender;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -15,7 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "employees")
+@Table(name = LoggerConstants.TABLE_NAME_EMPLOYEE)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

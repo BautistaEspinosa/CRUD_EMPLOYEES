@@ -65,3 +65,18 @@ info:
     description: Service to manage employees
     version: 1.0.0
     created-by: Roman Bautista
+
+# Externalización de endpoints
+endpoints:
+  base-url: /api/employees
+  paths:
+    getById: /{id}
+    createBatch: /batch
+    update: /{id}
+    delete: /{id}
+  audit-logs:
+    base-url: /api/audit-logs
+    paths:
+      getAll: /
+      getByEntity: /{entityType}/{entityId}
+

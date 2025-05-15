@@ -1,5 +1,6 @@
 package com.example.CRUDEMPLOYEES.model.entities;
 
+import com.example.CRUDEMPLOYEES.constants.LoggerConstants;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "audit_log")
+@Table(name = LoggerConstants.TABLE_NAME_AUDIT)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

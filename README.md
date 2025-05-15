@@ -107,6 +107,42 @@ curl -X GET "http://localhost:8080/api/audit-logs"
 ```
 ---
 
+## 🔧 Configuración de Endpoints Externalizados
+Este proyecto externaliza las rutas base de sus controladores REST a través del archivo application.yml, lo cual permite modificar rutas sin cambiar el código fuente.
+
+## 📄 Configuración en application.yml
+```
+endpoints:
+  base-url: /api/employees
+  paths:
+    getById: /{id}
+    createBatch: /batch
+    update: /{id}
+    delete: /{id}
+  audit-logs:
+    base-url: /api/audit-logs
+    paths:
+      getAll: /
+      getByEntity: /{entityType}/{entityId}
+```
+## 📁 Rutas usadas por los controladores
+| Controlador          | Método           | Ruta externalizada                          | Ruta resultante                           |
+| -------------------- | ---------------- | ------------------------------------------- | ----------------------------------------- |
+| `EmployeeController` | `@GetMapping`    | `${endpoints.base-url}`                     | `/api/employees`                          |
+|                      | `@PostMapping`   | `${endpoints.base-url}`                     | `/api/employees`                          |
+|                      | `@PostMapping`   | `${endpoints.base-url}/batch`               | `/api/employees/batch`                    |
+|                      | `@PutMapping`    | `${endpoints.base-url}/{id}`                | `/api/employees/{id}`                     |
+|                      | `@DeleteMapping` | `${endpoints.base-url}/{id}`                | `/api/employees/{id}`                     |
+|                      | `@GetMapping`    | `${endpoints.base-url}/{id}`                | `/api/employees/{id}`                     |
+| `AuditLogController` | `@GetMapping`    | `${endpoints.audit-logs.paths.getAll}`      | `/api/audit-logs/`                        |
+|                      | `@GetMapping`    | `${endpoints.audit-logs.paths.getByEntity}` | `/api/audit-logs/{entityType}/{entityId}` |
+
+## ✅ Ventajas de externalizar rutas
+- ✔️ Centraliza la configuración
+- ✔️ Facilita los cambios sin modificar el código
+- ✔️ Útil para entornos (desarrollo, QA, producción)
+- ✔️ Mejora la mantenibilidad y claridad del código
+- 
 ## 📋 Validaciones
 - Edad: debe ser un valor entre 18 y 100 (@Min(18), @Max(100))
 - Fecha de nacimiento: formato "yyyy-MM-dd" (ejemplo: "1993-05-15")
@@ -138,6 +174,7 @@ Estas pruebas aseguran que la lógica principal y los endpoints respondan correc
 src/main/java/com/example/CRUDEMPLOYEES/
 ├── apidoc
 ├── config
+├── constants
 ├── controller
 ├── service
 │   ├── impl
@@ -166,4 +203,5 @@ Estado del Proyecto
 - ✅ Auditoría completa
 - ✅ Documentación Swagger
 - ✅ Pruebas unitarias
+- ✅ Externalización de rutas
 

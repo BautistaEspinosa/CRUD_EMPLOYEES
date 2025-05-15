@@ -1,6 +1,8 @@
 package com.example.CRUDEMPLOYEES.controller;
 
 import com.example.CRUDEMPLOYEES.apidoc.EmployeeApiDoc;
+import com.example.CRUDEMPLOYEES.constants.Constants;
+import com.example.CRUDEMPLOYEES.constants.LoggerConstants;
 import com.example.CRUDEMPLOYEES.model.dto.request.EmployeeRequestDTO;
 import com.example.CRUDEMPLOYEES.model.dto.response.EmployeeResponseDTO;
 import com.example.CRUDEMPLOYEES.service.EmployeeService;
@@ -22,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("${endpoints.base-url}")
 @RequiredArgsConstructor
 @Slf4j
 public class EmployeeController implements EmployeeApiDoc {
@@ -37,7 +39,7 @@ public class EmployeeController implements EmployeeApiDoc {
     return ResponseEntity.status(HttpStatus.OK).body(employees);
   }
 
-  @GetMapping("/{id}")
+  @GetMapping("${endpoints.paths.getById}")
   public ResponseEntity<EmployeeResponseDTO> getById(@PathVariable Long id,
       @RequestHeader HttpHeaders headers) {
     logHeaders(headers);
@@ -51,7 +53,8 @@ public class EmployeeController implements EmployeeApiDoc {
     return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.create(dto));
   }
 
-  @PostMapping("/batch")
+
+  @PostMapping("${endpoints.paths.createBatch}")
   public ResponseEntity<List<EmployeeResponseDTO>> createBatch(
       @Valid @RequestBody List<EmployeeRequestDTO> dtos,
       @RequestHeader HttpHeaders headers) {
@@ -59,7 +62,7 @@ public class EmployeeController implements EmployeeApiDoc {
     return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.createMany(dtos));
   }
 
-  @PutMapping("/{id}")
+  @PutMapping("${endpoints.paths.update}")
   public ResponseEntity<EmployeeResponseDTO> update(@PathVariable Long id,
       @Valid @RequestBody EmployeeRequestDTO dto,
       @RequestHeader HttpHeaders headers) {
@@ -67,7 +70,7 @@ public class EmployeeController implements EmployeeApiDoc {
     return ResponseEntity.status(HttpStatus.OK).body(employeeService.update(id, dto));
   }
 
-  @DeleteMapping("/{id}")
+  @DeleteMapping("${endpoints.paths.delete}")
   public ResponseEntity<Void> delete(@PathVariable Long id,
       @RequestHeader HttpHeaders headers){
     logHeaders(headers);
@@ -76,7 +79,7 @@ public class EmployeeController implements EmployeeApiDoc {
   }
 
   private void logHeaders(HttpHeaders headers) {
-    headers.forEach((key, value) -> log.info("Header '{}': {}", key,
-        String.join(",", value)));
+    headers.forEach((key, value) -> log.info(LoggerConstants.HEADER, key,
+        String.join(Constants.DELIMITER, value)));
   }
 }

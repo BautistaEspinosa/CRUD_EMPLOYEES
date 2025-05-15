@@ -15,33 +15,33 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import static com.example.CRUDEMPLOYEES.constants.ApiDocConstants.*;
 
-@Tag(name = "Employees", description = "Operations related to employees")
+@Tag(name = TAG_EMPLOYEES, description = TAG_EMPLOYEES_DESC)
 public interface EmployeeApiDoc {
 
   @Operation(
-      summary = "Get all employees",
-      description = "Returns a list of all registered employees",
+      summary = GET_ALL_SUMMARY,
+      description = GET_ALL_DESC,
       responses = @ApiResponse(
-          responseCode = "200",
-          description = "Successful operation",
+          responseCode = RESP_200,
+          description = RESP_OK,
           content = @Content(
-              mediaType = "application/json",
+              mediaType = METATYPE,
               array = @ArraySchema(schema = @Schema(implementation = EmployeeResponseDTO.class))
           )
       )
   )
-  ResponseEntity<List<EmployeeResponseDTO>> getAllEmployees(
-      @RequestHeader HttpHeaders headers);
+  ResponseEntity<List<EmployeeResponseDTO>> getAllEmployees(@RequestHeader HttpHeaders headers);
 
   @Operation(
-      summary = "Get employee",
-      description = "Returns one registered employee by his id",
+      summary = GET_BY_ID_SUMMARY,
+      description = GET_BY_ID_DESC,
       responses = @ApiResponse(
-          responseCode = "200",
-          description = "Successful operation",
+          responseCode = RESP_200,
+          description = RESP_OK,
           content = @Content(
-              mediaType = "application/json",
+              mediaType = METATYPE,
               schema = @Schema(implementation = EmployeeResponseDTO.class)
           )
       )
@@ -50,13 +50,13 @@ public interface EmployeeApiDoc {
       @RequestHeader HttpHeaders headers);
 
   @Operation(
-      summary = "Create employee",
-      description = "Create new employee",
+      summary = CREATE_SUMMARY,
+      description = CREATE_DESC,
       responses = @ApiResponse(
-          responseCode = "201",
-          description = "Successful operation",
+          responseCode = RESP_201,
+          description = RESP_OK,
           content = @Content(
-              mediaType = "application/json",
+              mediaType = METATYPE,
               schema = @Schema(implementation = EmployeeResponseDTO.class)
           )
       )
@@ -65,13 +65,13 @@ public interface EmployeeApiDoc {
       @RequestHeader HttpHeaders headers);
 
   @Operation(
-      summary = "Create multiple employees",
-      description = "Allows you to create multiple employees",
+      summary = CREATE_BATCH_SUMMARY,
+      description = CREATE_BATCH_DESC,
       responses = @ApiResponse(
-          responseCode = "201",
-          description = "Successful operation",
+          responseCode = RESP_201,
+          description = RESP_OK,
           content = @Content(
-              mediaType = "application/json",
+              mediaType = METATYPE,
               array = @ArraySchema(schema = @Schema(implementation = EmployeeResponseDTO.class))
           )
       )
@@ -81,13 +81,13 @@ public interface EmployeeApiDoc {
       @RequestHeader HttpHeaders headers);
 
   @Operation(
-      summary = "Update employee",
-      description = "Updates an existing employee's data in the system",
+      summary = UPDATE_SUMMARY,
+      description = UPDATE_DESC,
       responses = @ApiResponse(
-          responseCode = "200",
-          description = "Successful operation",
+          responseCode = RESP_200,
+          description = RESP_OK,
           content = @Content(
-              mediaType = "application/json",
+              mediaType = METATYPE,
               schema = @Schema(implementation = EmployeeResponseDTO.class)
           )
       )
@@ -97,18 +97,17 @@ public interface EmployeeApiDoc {
       @RequestHeader HttpHeaders headers);
 
   @Operation(
-      summary = "Delete Employee",
-      description = "Delete an employee by id",
+      summary = DELETE_SUMMARY,
+      description = DELETE_DESC,
       responses = @ApiResponse(
-          responseCode = "204",
-          description = "Successful operation",
+          responseCode = RESP_204,
+          description = RESP_OK,
           content = @Content(
-              mediaType = "application/json",
-              schema = @Schema(hidden = true)  // ocultamos el schema para delete void
+              mediaType = METATYPE,
+              schema = @Schema(hidden = true)
           )
       )
   )
   ResponseEntity<Void> delete(@PathVariable Long id,
       @RequestHeader HttpHeaders headers);
-
 }

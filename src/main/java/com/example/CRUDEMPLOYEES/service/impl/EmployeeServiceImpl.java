@@ -2,6 +2,7 @@ package com.example.CRUDEMPLOYEES.service.impl;
 
 import static java.util.stream.Collectors.toList;
 
+import com.example.CRUDEMPLOYEES.constants.LoggerConstants;
 import com.example.CRUDEMPLOYEES.exception.EmployeeNotFoundException;
 import com.example.CRUDEMPLOYEES.model.dto.request.EmployeeRequestDTO;
 import com.example.CRUDEMPLOYEES.model.dto.response.EmployeeResponseDTO;
@@ -25,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public List<EmployeeResponseDTO> getAllEmployees() {
-    log.info("Fetching all employees");
+    log.info(LoggerConstants.LOG_FETCHING);
     return employeeRepository.findAll().stream()
         .map(EmployeeMapper::toDto)
         .collect(toList());
@@ -33,7 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public EmployeeResponseDTO getById(Long id) {
-    log.info("Getting employee by Id: {}", id);
+    log.info(LoggerConstants.LOG_GETTING, id);
     return employeeRepository.findById(id)
         .map(EmployeeMapper::toDto)
         .orElseThrow(() -> new EmployeeNotFoundException(id));
@@ -41,30 +42,30 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public EmployeeResponseDTO create(EmployeeRequestDTO dto) {
-    log.info("Creating new employee");
+    log.info(LoggerConstants.LOG_CREATE);
     Employee employee = EmployeeMapper.toEntity(dto);
     Employee saved = employeeRepository.save(employee);
-    auditLogService.log("CREATE", "EMPLOYEE", saved.getId(), "SYSTEM",
-        "The employee has been created");
+    auditLogService.log(LoggerConstants.LOG_ACTION, LoggerConstants.LOG_ENTITY, saved.getId(), LoggerConstants.PERFOMEDSYSTEM,
+        LoggerConstants.LOG_DETAILS);
     return EmployeeMapper.toDto(saved);
   }
 
   @Override
   public List<EmployeeResponseDTO> createMany(List<EmployeeRequestDTO> dtos) {
-    log.info("Creating {} employees", dtos.size());
+    log.info(LoggerConstants.LOG_CREATING, dtos.size());
     List<Employee> saved = employeeRepository.saveAll(
         dtos.stream().map(EmployeeMapper::toEntity).toList()
     );
 
     saved.forEach(emp ->
-        auditLogService.log("CREATE", "EMPLOYEE", emp.getId(), "SYSTEM",
-            "Batch created employee"));
+        auditLogService.log(LoggerConstants.LOG_ACTION, LoggerConstants.LOG_ENTITY, emp.getId(), LoggerConstants.PERFOMEDSYSTEM,
+            LoggerConstants.LOG_DETAILS_BATCH));
     return saved.stream().map(EmployeeMapper::toDto).toList();
   }
 
   @Override
   public EmployeeResponseDTO update(Long id, EmployeeRequestDTO dto) {
-    log.info("Updating employee with id: {}", id);
+    log.info(LoggerConstants.LOG_UPDATE, id);
 
     return employeeRepository.findById(id)
         .map(existing -> {
@@ -78,7 +79,7 @@ public class EmployeeServiceImpl implements EmployeeService {
           if (dto.getPosition() != null) existing.setPosition(dto.getPosition());
 
           Employee saved = employeeRepository.save(existing);
-          auditLogService.log("UPDATE", "EMPLOYEE", saved.getId(), "SYSTEM", "Employee updated");
+          auditLogService.log(LoggerConstants.LOG_ACTION_UPDATE, LoggerConstants.LOG_ENTITY, saved.getId(), LoggerConstants.PERFOMEDSYSTEM, LoggerConstants.LOG_DETAILS_UPDATE);
           return EmployeeMapper.toDto(saved);
         })
         .orElseThrow(() -> new EmployeeNotFoundException(id));
@@ -87,12 +88,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public void delete(Long id) {
-    log.info("Deleting employee with id: {}", id);
+    log.info(LoggerConstants.LOG_DELETE, id);
     if (!employeeRepository.existsById(id)) {
       throw new EmployeeNotFoundException(id);
     }
     employeeRepository.deleteById(id);
-    auditLogService.log("DELETE","EMPLOYEE",id,"SYSTEM",
-        "Employee deleted");
+    auditLogService.log(LoggerConstants.LOG_ACTION_DELETE,LoggerConstants.LOG_ENTITY,id,LoggerConstants.PERFOMEDSYSTEM,
+        LoggerConstants.LOG_DETAILS_DELETE);
   }
 }

@@ -1,11 +1,10 @@
 package com.example.CRUDEMPLOYEES.model.dto.request;
 
+import com.example.CRUDEMPLOYEES.constants.Constants;
 import com.example.CRUDEMPLOYEES.model.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import java.time.LocalDate;
@@ -17,27 +16,27 @@ import lombok.Data;
 public class EmployeeRequestDTO {
 
 
-  @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "El nombre solo debe contener letras")
+  @Pattern(regexp = Constants.PATTERNREGIX, message = Constants.MESSAGEFIRSTNAME)
   private String firstName;
 
-  @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]*$", message = "El segundo nombre solo debe contener letras")
+  @Pattern(regexp = Constants.PATTERN_REGIX , message = Constants.MESSAGEMIDDLENAME)
   private String middleName;
 
-  @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "El apellido solo debe contener letras")
+  @Pattern(regexp = Constants.PATTERNREGIX, message = Constants.MESSAGELASTNAME )
   private String lastName;
 
-  @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]*$", message = "El segundo apellido solo debe contener letras")
+  @Pattern(regexp = Constants.PATTERN_REGIX, message = Constants.MESSAGESECONDLAST)
   private String secondLastName;
 
-  @Min(value = 18, message = "La edad mínima es 18")
-  @Max(value = 100, message = "La edad máxima es 100")
+  @Min(value = Constants.VALUE_MIN, message = Constants.MESSAGEAGEMIN)
+  @Max(value = Constants.VALUE_MAX, message = Constants.MESSAGE_AGEMAX)
   private Integer age;
 
 
   private Gender gender;
 
-  @JsonFormat(pattern = "dd-MM-yyyy")
-  @Past(message = "La fecha de nacimiento debe ser en el pasado")
+  @JsonFormat(pattern = Constants.PATTER_DATE)
+  @Past(message = Constants.MESSAGE_DATE)
   private LocalDate birthday;
 
   private String position;

@@ -1,5 +1,6 @@
 package com.example.CRUDEMPLOYEES.exception;
 
+import com.example.CRUDEMPLOYEES.constants.LoggerConstants;
 import com.example.CRUDEMPLOYEES.model.dto.response.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
@@ -27,7 +28,7 @@ public class GlobalExceptionHeader {
     String message = ex.getBindingResult().getFieldErrors().stream()
         .map(e -> e.getField() + ": " + e.getDefaultMessage())
         .findFirst()
-        .orElse("Validation Error");
+        .orElse(LoggerConstants.EXCEPTIONVALIDATE);
     return buildErrorResponse(HttpStatus.BAD_REQUEST, message, rq.getRequestURI());
   }
 
@@ -43,8 +44,8 @@ public class GlobalExceptionHeader {
 
   @ExceptionHandler(Exception.class)
   public ResponseEntity<ErrorResponse> handleGeneric(Exception e,HttpServletRequest request){
-    log.error("Unhandled excpetion",e);
-    return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR,"Unexpected error ocurred",request.getRequestURI());
+    log.error(LoggerConstants.UNHANDLED,e);
+    return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR,LoggerConstants.MESSAGE_SERVER_ERROR,request.getRequestURI());
   }
   private ResponseEntity<ErrorResponse> buildErrorResponse(HttpStatus status, String message,
       String path) {

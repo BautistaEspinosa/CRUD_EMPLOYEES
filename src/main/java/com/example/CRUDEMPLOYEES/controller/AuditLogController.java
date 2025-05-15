@@ -10,17 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/audit-logs")
+@RequestMapping("${endpoints.audit-logs.base-url}")
 @RequiredArgsConstructor
 public class AuditLogController {
+
   private final AuditLogService auditLogService;
 
-  @GetMapping
+  @GetMapping("${endpoints.audit-logs.paths.getAll}")
   public List<AuditLog> getAllLogs() {
     return auditLogService.getAll();
   }
 
-  @GetMapping("/{entityType}/{entityId}")
+  @GetMapping("${endpoints.audit-logs.paths.getByEntity}")
   public List<AuditLog> getLogsByEntity(@PathVariable String entityType,
       @PathVariable Long entityId) {
     return auditLogService.getByEntity(entityType, entityId);

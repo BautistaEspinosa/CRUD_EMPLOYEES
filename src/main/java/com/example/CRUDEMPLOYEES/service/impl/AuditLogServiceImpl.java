@@ -1,5 +1,6 @@
 package com.example.CRUDEMPLOYEES.service.impl;
 
+import com.example.CRUDEMPLOYEES.constants.LoggerConstants;
 import com.example.CRUDEMPLOYEES.model.entities.AuditLog;
 import com.example.CRUDEMPLOYEES.repository.AuditLogRepository;
 import com.example.CRUDEMPLOYEES.service.AuditLogService;
@@ -20,7 +21,7 @@ public class AuditLogServiceImpl implements AuditLogService {
         .action(action)
         .entity(entity)
         .entityId(entityId)
-        .performedBy(performedBy != null ? performedBy : "SYSTEM")
+        .performedBy(performedBy != null ? performedBy : LoggerConstants.PERFOMEDSYSTEM)
         .timestamp(LocalDateTime.now())
         .details(details)
         .build();
