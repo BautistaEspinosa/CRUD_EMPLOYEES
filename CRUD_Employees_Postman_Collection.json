@@ -1,126 +1,72 @@
+# --- Audit Log Endpoints ---
+
+# Obtener todos los audit logs
+curl -X GET "http://tu-servidor/api/audit-logs" -H "Accept: */*"
+
+# Obtener audit logs por tipo de entidad y id (ejemplo: entityType=Employee, entityId=1)
+curl -X GET "http://tu-servidor/api/audit-logs/Employee/1" -H "Accept: */*"
+
+# -- Employee Endpoints --
+
+# Obtener todos los empleados
+curl -X GET "http://localhost:8080/api/employees" -H "Accept: application/json"
+
+# Crear un empleado
+curl -X POST "http://localhost:8080/api/employees" \
+-H "Content-Type: application/json" \
+-d '{
+"firstName": "Juan",
+"middleName": "Carlos",
+"lastName": "Pérez",
+"secondLastName": "Gómez",
+"age": 30,
+"gender": "MALE",
+"birthday": "1993-05-15",
+"position": "Developer"
+}'
+
+# Obtener un empleado por ID (ejemplo id=1)
+curl -X GET "http://localhost:8080/api/employees/1" -H "Accept: application/json"
+
+# Actualizar un empleado por ID (ejemplo id=1)
+curl -X PUT "http://localhost:8080/api/employees/1" \
+-H "Content-Type: application/json" \
+-d '{
+"firstName": "Juan",
+"middleName": "Carlos",
+"lastName": "Pérez",
+"secondLastName": "Gómez",
+"age": 31,
+"gender": "MALE",
+"birthday": "1993-05-15",
+"position": "Senior Developer"
+}'
+
+# Eliminar un empleado por ID (ejemplo id=1)
+curl -X DELETE "http://localhost:8080/api/employees/1"
+
+# Crear múltiples empleados (batch)
+curl -X POST "http://localhost:8080/api/employees/batch" \
+-H "Content-Type: application/json" \
+-d '[
 {
-  "info": {
-    "name": "CRUD Employees API",
-    "_postman_id": "12345678-abcd-1234-efgh-1234567890ab",
-    "description": "Colecci\u00f3n para probar la API REST de gesti\u00f3n de empleados.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Get All Employees",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/api/employees",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "employees"
-          ]
-        }
-      }
-    },
-    {
-      "name": "Get Employee By ID",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/api/employees/1",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "employees",
-            "1"
-          ]
-        }
-      }
-    },
-    {
-      "name": "Create Employee",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"firstName\": \"Juan\",\n  \"middleName\": \"Carlos\",\n  \"lastName\": \"P\\u00e9rez\",\n  \"secondLastName\": \"G\\u00f3mez\",\n  \"age\": 30,\n  \"gender\": \"M\",\n  \"birthday\": \"15-05-1995\",\n  \"position\": \"Developer\"\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8080/api/employees",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "employees"
-          ]
-        }
-      }
-    },
-    {
-      "name": "Update Employee",
-      "request": {
-        "method": "PUT",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"firstName\": \"Juan\",\n  \"middleName\": \"Carlos\",\n  \"lastName\": \"P\\u00e9rez\",\n  \"secondLastName\": \"G\\u00f3mez\",\n  \"age\": 31,\n  \"gender\": \"M\",\n  \"birthday\": \"15-05-1994\",\n  \"position\": \"Senior Developer\"\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8080/api/employees/1",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "employees",
-            "1"
-          ]
-        }
-      }
-    },
-    {
-      "name": "Delete Employee",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/api/employees/1",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "employees",
-            "1"
-          ]
-        }
-      }
-    }
-  ]
+"firstName": "Juan",
+"middleName": "Carlos",
+"lastName": "Pérez",
+"secondLastName": "Gómez",
+"age": 30,
+"gender": "MALE",
+"birthday": "1993-05-15",
+"position": "Developer"
+},
+{
+"firstName": "Ana",
+"middleName": "María",
+"lastName": "Lopez",
+"secondLastName": "Sánchez",
+"age": 28,
+"gender": "FEMALE",
+"birthday": "1995-08-22",
+"position": "QA Engineer"
 }
+]'
