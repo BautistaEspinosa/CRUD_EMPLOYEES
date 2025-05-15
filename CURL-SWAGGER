@@ -1,0 +1,60 @@
+-POST CREATE EMPLOYEE
+curl -X 'POST' \
+  'http://localhost:8080/api/employees' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+          "firstName": "Roman",
+          "middleName": "",
+          "lastName": "Bautista",
+          "secondLastName": "Espinosa",
+          "age": 32,
+          "gender": "MALE",
+          "birthday": "1993-05-15",
+          "position": "Developer"
+        }'
+
+-POST CREATE MULTIPLE EMPLOYEE
+curl -X 'POST' \
+  'http://localhost:8080/api/employees/batch' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "firstName": "Roman",
+    "middleName": "",
+    "lastName": "Bautista",
+    "secondLastName": "Espinosa",
+    "age": 32,
+    "gender": "MALE",
+    "birthday": "1993-05-15",
+    "position": "Developer"
+  },
+{
+    "firstName": "Brandon",
+    "middleName": "",
+    "lastName": "Bautista",
+    "secondLastName": "Baez",
+    "age": 28,
+    "gender": "MALE",
+    "birthday": "1999-05-15",
+    "position": "Developer jr"
+  }
+]
+
+GET ALL EMPLOYEES
+curl -X 'GET' \
+  'http://localhost:8080/api/employees' \
+  -H 'accept: application/json'
+
+PUT EMPLOYEE
+curl -X 'PUT' \
+  'http://localhost:8080/api/employees/1' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "firstName": "Juan",
+  "middleName": "Roman",
+  "birthday": "1993-04-22",
+  "position": "Developer mid"
+}'

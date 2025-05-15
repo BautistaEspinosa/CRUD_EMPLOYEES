@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: crud-employees
+  datasource:
+    url: jdbc:h2:mem:employeesdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    initialization-mode: always
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    serialization:
+      indent_output: true
+
+server:
+  port: 8080
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.example.CRUDEMPLOYEES: DEBUG
+    org.springdoc: DEBUG
+    org.springframework.web: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n"
+
+# Configuración SpringDoc OpenAPI (Swagger)
+springdoc:
+  api-docs:
+    path: /v3/api-docs  # Endpoint para el JSON de la API
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html  # Interfaz gráfica
+    enabled: true
+    tags-sorter: alpha
+    operations-sorter: alpha
+  show-actuator: true
+  cache:
+    disabled: true  # Desactiva cache en desarrollo
+
+#Configuracion actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+# Custom properties
+info:
+  app:
+    name: EMPLOYE-SERVICE
+    description: Service to manage employees
+    version: 1.0.0
+    created-by: Roman Bautista
