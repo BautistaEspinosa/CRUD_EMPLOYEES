@@ -42,7 +42,6 @@ Este proyecto es un servicio RESTful desarrollado con **Spring Boot 3.x**, que p
 
 ## 📋 Validaciones aplicadas
 
-- Nombre, Apellido, Género y Cargo: **@NotBlank**
 - Edad: **@Min(18)** y **@Max(100)**
 - Fecha de nacimiento: patrón `"dd-MM-yyyy"`
 
@@ -92,7 +91,7 @@ src/main/java/com/example/CRUDEMPLOYEES/
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/CRUDEMPLOYEES.git
+   git clone [https://github.com/tu-usuario/CRUDEMPLOYEES.git](https://github.com/BautistaEspinosa/CRUD_EMPLOYEES.git)
    ```
 
 2. Ejecuta la app desde tu IDE o:
