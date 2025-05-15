@@ -60,6 +60,8 @@ Se incluyen pruebas unitarias con JUnit y Mockito para:
 
 - `EmployeeService`
 - `EmployeeController`
+- `AuditLogController`
+- `AuditLogService`
 
 Cobertura de pruebas básica para validar lógica y respuestas esperadas.
 
@@ -69,6 +71,8 @@ Cobertura de pruebas básica para validar lógica y respuestas esperadas.
 
 ```
 src/main/java/com/example/CRUDEMPLOYEES/
+├── apidoc
+├── config
 ├── controller
 ├── service
 │   ├── impl
@@ -77,6 +81,7 @@ src/main/java/com/example/CRUDEMPLOYEES/
 │   │   ├── request
 │   │   └── response
 │   └── entities
+|   ├── enums
 ├── repository
 ├── exception
 ```
